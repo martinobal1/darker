@@ -1,0 +1,41 @@
+* {
+    color: white !important;
+    filter: sepia(0) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: white !important;
+}
+
+a {
+    color: #4fa3d1 !important;
+}
+body {
+    transition: filter 0.3s ease; /* Pre hladk� prechod medzi hodnotami */
+    filter: sepia(0); /* Predvolen� filter je na 0% */
+}
+input:checked + .slider {
+    background-color: #bfbfbf !important; /* Nezmení farbu pri zapnutí */
+}
+/* Zrušenie tmavého filtra pre mapy */
+iframe, [class*="map"], [class*="nwn5d"] {
+    filter: none !important;
+    background-color: transparent !important;
+}
+
+/* Zabezpečenie čitateľnosti Weby s miestami */
+[class*="KYLHhb"], [class*="Ww4FFb"], [class*="vt6azd"] {
+    background-color: #222 !important;
+    color: white !important;
+    filter: none !important;
+}
+html.dark-mode {
+    filter: invert(1) hue-rotate(180deg);
+}
+
+/* Pridaj špecifické vylúčenie pre oblasť obsahujúcu mapy alebo weby s miestami */
+div.gm-style,
+div#some-specific-container {
+    filter: none !important;
+    background: none !important;
+}

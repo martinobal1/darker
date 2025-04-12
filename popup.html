@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Darker Toggle</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            background: #333;
+            color: #FFF;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #444444 !important;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: black;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #d3d3d3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        .icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        .icon.sun {
+            left: 8px;
+            color: #f9d342;
+        }
+
+        .icon.moon {
+            right: 8px;
+            color: #f0f0f0;
+        }
+
+        .sepia-container {
+            margin-top: 20px;
+        }
+
+        .blacklist-container {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .blacklist-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .blacklist-container li {
+            margin-bottom: 10px;
+        }
+
+        .blacklist-container button {
+            background-color: #e74c3c;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .blacklist-container button:hover {
+            background-color: #c0392b;
+        }
+
+        .input-url {
+            margin-top: 10px;
+        }
+
+        .input-url button {
+            padding: 5px 10px;
+            background-color: #3498db;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 10px;
+            width: 117px;
+            border-radius: 5px;
+        }
+        button#openBlacklistPage {
+            border-radius: 5px;
+            height: 28px;
+            width: 117px;
+        }
+
+        .input-url button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <h3>Darker Toggle</h3>
+    <label class="switch">
+        <input type="checkbox" id="toggleSwitch">
+        <span class="slider round">
+            <i class="bi bi-sun icon sun"></i>
+            <i class="bi bi-moon icon moon"></i>
+        </span>
+    </label>
+
+    <div class="sepia-container">
+        <label for="sepiaSlider">Sepia Filter</label>
+        <input type="range" id="sepiaSlider" min="0" max="100" value="0">
+    </div>
+
+    <div class="blacklist-container">
+
+    </div>
+    
+    <div class="input-url">
+        <button id="addCurrentPageToBlacklist">Add to blacklist</button>
+    </div>
+    <button id="openBlacklistPage">Display blacklist</button>
+
+    <script src="popup.js"></script>
+</body>
+</html>
